@@ -10,13 +10,9 @@ public class Main {
         System.out.println("Carfax of the car: ");
         System.out.println(defaultCar.carfax());
 
-        System.out.println("Enter the amount of miles you want to drive: ");
-        defaultCar.drive(scan.nextDouble());
-        System.out.println(defaultCar.carfax());
-        scan.nextLine();
-
 
             // Gathering user input for new car
+        System.out.println();                                           // line seperator for display purposes
         System.out.println("Enter the make of the car: ");
         String make = scan.nextLine();
         System.out.println("Enter the model of the car: ");
@@ -30,17 +26,19 @@ public class Main {
         String vin = scan.nextLine();
         System.out.println("Enter the top speed of the car: ");
         int topspeed = scan.nextInt();
-        System.out.println("Enter the fuel capacity of your car: ");
-        int fueltank = scan.nextInt();
+        scan.nextLine();                                                // To avoid the program skipping the next nextLine() method call
+        System.out.println("Enter the fuel type of your car: ");
+        String fueltype = scan.nextLine();
 
             // overloaded car constructor
-        Car newCar = new Car(make, model, year, color, vin, topspeed, fueltank);
+        Car newCar = new Car(make, model, year, color, vin, topspeed, fueltype);
         System.out.println(newCar);
         System.out.println("Carfax of the car: ");
         System.out.println(newCar.carfax());
 
 
             // Gathering user input for custom car
+        System.out.println();                                           // line seperator for display purposes
         System.out.println("Enter the make of your car: ");
         make = scan.nextLine();
         System.out.println("Enter the model of your car: ");
@@ -60,14 +58,14 @@ public class Main {
         double range = scan.nextDouble();
         scan.nextLine();                                                // To avoid the program skipping the next nextLine() method call
         System.out.println("Enter the fuel type of your car: ");
-        String fueltype = scan.nextLine();
+        fueltype = scan.nextLine();
         System.out.println("Enter the mileage of your car: ");
         double mileage = scan.nextDouble();
         System.out.println("Enter the fuel capacity of your car: ");
-        fueltank = scan.nextInt();
+        int fueltank = scan.nextInt();
 
             // Custom car constructor
-        Car customCar = new Car(make, model, year, color, vin, topspeed, economy, range, fueltype, mileage, fueltank);
+        Car customCar = new Car(make, model, year, color, vin, topspeed, economy, fueltype, mileage, fueltank);
         System.out.println(customCar);
         System.out.println("Carfax of the car: ");
         System.out.println(customCar.carfax());

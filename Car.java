@@ -1,6 +1,7 @@
 import java.util.Random;
 
 public class Car {
+        // establishing class variables
     private String make;
     private String model;
     private int year;
@@ -41,19 +42,25 @@ public class Car {
 
 
         // Overloaded constructor
-    public Car(String make, String model, int year, String color, String vin, int topspeed, int fueltank) {
+    public Car(String make, String model, int year, String color, String vin, int topspeed, String fueltype) {
+        rand = new Random();
         this.make = make;
         this.model = model;
         this.year = year;
         this.color = color;
         this.vin = vin;
         this.topspeed = topspeed;
-        this.fueltank = fueltank;
+        this.fueltype = fueltype;
+        this.fueltank = rand.nextInt(12, 20);
+        this.economy = rand.nextDouble(18.0, 28.0);
+        this.range = this.fueltank * this.economy;
+        this.mileage = 0.0F;
+
     }
 
 
         // existing constructor
-    public Car(String make, String model, int year, String color, String vin, int topspeed, double economy, double range, String fueltype, double mileage, int fueltank) {
+    public Car(String make, String model, int year, String color, String vin, int topspeed, double economy, String fueltype, double mileage, int fueltank) {
         this.make = make;
         this.model = model;
         this.year = year;
@@ -61,10 +68,11 @@ public class Car {
         this.vin = vin;
         this.topspeed = topspeed;
         this.economy = economy;
-        this.range = range;
+        this.fueltank = fueltank;
+        this.range = this.economy * this.fueltank;
         this.fueltype = fueltype;
         this.mileage = mileage;
-        this.fueltank = fueltank;
+
     }
 
 
@@ -77,22 +85,6 @@ public class Car {
         }
         return vinTemp;
     }
-
-        // Method for driving x amount of miles
-    public void drive(double miles) {
-        if (miles > this.range) {
-            System.out.println("This car can't drive that far without refueling");
-        } else {
-            this.mileage += miles;
-        }
-    }
-
-    // Method for rounding a double number to two decimal places
-    //public double doubleFormat(double num) {
-    //    String temp = Double.toString(num);
-    //    temp = temp.substring(0, temp.indexOf('.') + 3);
-    //    return Double.valueOf(temp);
-    //}
 
 
         // Method for returning basic info about the car
